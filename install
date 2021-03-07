@@ -3,4 +3,4 @@ clear
 pkg install ffmpeg
 cp ivc /data/data/com.termux/files/usr/bin
 clear
-echo -e "Proses instalasi selesai!\nKetik 'ivc namaFile.mp4' untuk memulai proses kompress"
+echo -e "Proses instalasi selesai!\nKetik 'ivc namaFile.mp4' untuk memulai proses kompres"

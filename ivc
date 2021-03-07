@@ -14,7 +14,7 @@ elif [ $# -eq 4 ]; then
 		waktuSelesaiSec=$(echo $waktuSelesai | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
 		akhir=$(expr $waktuSelesaiSec - $waktuMulaiSec)
 
-		namaFile=$1
+		namaFile=$4
 		output=${namaFile%.*}
     ffmpeg -ss $waktuMulaiSec2 -i "$namaFile" -ss 1 -t $akhir -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata title="Compressed & trimmed by Instant Video Compressor" "${output}_trimmed.mp4"
 		echo -e "\nProses kompres & trim selesai!"

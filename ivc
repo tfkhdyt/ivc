@@ -6,7 +6,7 @@ if [ $# -eq 1 ]; then
 	#echo $output
 	echo -e "\nProses kompres selesai!"
 elif [ $# -eq 4 ]; then
-	if [ $1 -eq "-t" ]; then
+	if [ "$1" -eq "-t" ]; then
 		waktuMulai=$2
     waktuMulaiSec=$(echo $waktuMulai | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
   	waktuMulaiSec2=$(echo $waktuMulai | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 - 1 }')

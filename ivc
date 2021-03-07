@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# -eq 1 ]; then
+	namaFile = $1
+	output = ${namaFile%.*}
+	#ffmpeg -i "$namaFile" -c:v libx264 -c:a copy -preset veryfast -crf 20 ${output}_compressed.mp4 
+	echo $output
+	printf "\nProses kompres selesai!"
+fi

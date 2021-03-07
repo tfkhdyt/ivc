@@ -5,7 +5,7 @@ if [ $# -eq 1 ]; then
 	else
 		namaFile=$1
 		output=${namaFile%.*}
-		ffmpeg -i "$namaFile" -c:v libx264 -c:a copy -crf 20 -preset veryfast "${output}_compressed.mp4"
+		ffmpeg -i "$namaFile" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "${output}_compressed.mp4"
 		#echo $output
 		clear
 		echo -e "\nProses kompres selesai!"
@@ -21,7 +21,7 @@ elif [ $# -eq 4 ]; then
 
 		namaFile=$4
 		output=${namaFile%.*}
-    ffmpeg -ss $waktuMulaiSec2 -i "$namaFile" -ss 1 -t $akhir -c:v libx264 -crf 20 -preset veryfast -c:a copy "${output}_trimmed.mp4"
+    ffmpeg -ss $waktuMulaiSec2 -i "$namaFile" -ss 1 -t $akhir -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "${output}_trimmed.mp4"
 		clear
 		echo -e "\nProses kompres & trim selesai!"
 	fi

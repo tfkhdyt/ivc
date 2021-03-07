@@ -22,7 +22,7 @@ Saya tidak menjamin video yang kalian kompres ukurannya akan menjadi lebih kecil
 - `Koneksi internet (Hanya untuk instalasi dependencies, proses kompres tetap dilakukan secara offline)`
 
 ## Instalasi
-```Shell
+``````
 # mengizinkan termux mengakses storage
 termux-setup-storage
 # kemudian pilih y
@@ -37,7 +37,7 @@ ivc sample.mp4
 
 # Trim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
 # Contoh: ivc -t 00:01:00 00:02:30 sample.mp4
-
+``````
 ## Informasi lebih lanjut
 Apabila ada yang mau ditanyakan soal skrip ini, bisa langsung pm saya:
 <p align=center>

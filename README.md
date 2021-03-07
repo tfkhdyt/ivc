@@ -1,9 +1,10 @@
 # Instant Video Compressor
 [![0001-17904800388-20210307-094530-0000.png](https://i.postimg.cc/rFsWKMWd/0001-17904800388-20210307-094530-0000.png)](https://postimg.cc/KRX4WX0F)
+<br>
 Skrip untuk mengompres video dengan mudah menggunakan Termux.
 Dengan skrip ini, dapat membuat size videomu berkurang sampai ±50% tanpa mengurangi kualitas video.
 Skrip ini memudahkan kalian untuk menjalankan command ffmpeg tanpa harus menulis command yang panjang.
-Skrip ini merupakan simplified dari <a href="https://github.com/tfkhdyt/uvc">Ultra Video Compressor</a>
+Skrip ini merupakan simplified dari <a href="https://github.com/tfkhdyt/uvc">Ultra Video Compressor</a><br>
 <p align=center>
 <a href="https://tfkhdyt.web.app"><img src="https://img.shields.io/badge/Created%20by-tfkhdyt-blue?style=for-the-badge&logo=github" loading="lazy"/></a><br>
 <a href="Https://facebook.com/tfkhdyt142"><img height="30" src="https://www.pinclipart.com/picdir/big/2-21918_download-transparent-background-facebook-logo-clipart-facebook-logo.png" loading="lazy"/></a>&nbsp;

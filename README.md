@@ -1,4 +1,5 @@
 # Instant Video Compressor
+[![0001-17904800388-20210307-094530-0000.png](https://i.postimg.cc/rFsWKMWd/0001-17904800388-20210307-094530-0000.png)](https://postimg.cc/KRX4WX0F)
 Skrip untuk mengompres video dengan mudah menggunakan Termux.
 Dengan skrip ini, dapat membuat size videomu berkurang sampai ±50% tanpa mengurangi kualitas video.
 Skrip ini memudahkan kalian untuk menjalankan command ffmpeg tanpa harus menulis command yang panjang.

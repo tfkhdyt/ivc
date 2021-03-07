@@ -35,8 +35,10 @@ ivc [namaFile.mp4]
 # Contoh  :
 ivc sample.mp4
 
-# Trim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
-# Contoh: ivc -t 00:01:00 00:02:30 sample.mp4
+# Trim  : 
+ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
+# Contoh: 
+ivc -t 00:01:00 00:02:30 sample.mp4
 ``````
 ## Informasi lebih lanjut
 Apabila ada yang mau ditanyakan soal skrip ini, bisa langsung pm saya:

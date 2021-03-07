@@ -1,10 +1,25 @@
 #!/usr/bin/bash
 if [ $# -eq 1 ]; then
-	namaFile=$1
-	output=${namaFile%.*}
-	ffmpeg -i "$namaFile" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata title="Compressed by Instant Video Compressor" "${output}_compressed.mp4"
-	#echo $output
-	echo -e "\nProses kompres selesai!"
+ 	if [ "$1" == "-h" ]; then
+		echo -e "
+		Compress:\n
+			ivc [namaFile.mp4]\n
+			Contoh:\n
+				ivc sample.mp4\n\n
+
+		Trim:\n
+			ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]\n
+			Contoh:\n
+				ivc -t 00:01:00 00:02:30 sample.mp4
+		"
+	else
+		namaFile=$1
+		output=${namaFile%.*}
+		ffmpeg -i "$namaFile" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata title="Compressed by Instant Video Compressor" "${output}_compressed.mp4"
+		#echo $output
+		clear
+		echo -e "\nProses kompres selesai!"
+	fi
 elif [ $# -eq 4 ]; then
 	if [ "$1" == "-t" ]; then
 		waktuMulai=$2
@@ -17,6 +32,7 @@ elif [ $# -eq 4 ]; then
 		namaFile=$4
 		output=${namaFile%.*}
     ffmpeg -ss $waktuMulaiSec2 -i "$namaFile" -ss 1 -t $akhir -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata title="Compressed & trimmed by Instant Video Compressor" "${output}_trimmed.mp4"
+		clear
 		echo -e "\nProses kompres & trim selesai!"
 	fi
 fi

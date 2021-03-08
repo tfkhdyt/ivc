@@ -41,6 +41,9 @@ ivc sample.mp4
 ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
 # Contoh: 
 ivc -t 00:01:00 00:02:30 sample.mp4
+
+# Jika nama file mengandung spasi, maka awali dan akhiri nama file dengan tanda " " (Petik)
+# Contoh : ivc "Mega to Drive_1080p.mp4"
 ``````
 ## Informasi lebih lanjut
 Apabila ada yang mau ditanyakan soal skrip ini, bisa langsung pm saya:

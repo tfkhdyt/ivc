@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+import sys
+import os
+from datetime import datetime
+
+def get_sec(time_str):
+    """Get Seconds from time."""
+    h, m, s = time_str.split(':')
+    return int(h) * 3600 + int(m) * 60 + int(s)
+
+numberArg = len(sys.argv)
+#print(numberArg)
+arg1 = str(sys.argv[1])
+#print(arg1)
+
+if(numberArg == 2):
+    if(arg1 == "-h"):
+        print("Compress: ivc [namaFile.mp4]\nContoh  : ivc sample.mp4\n\nTrim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]\nContoh: ivc -t 00:01:00 00:02:30 sample.mp4\n\nMembatalkan proses kompres: Ctrl + C")
+    else:
+        namaFile = arg1
+        output = os.path.splitext(f"{namaFile}")[0]
+        os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_compressed.mp4"')
+        os.system("clear")
+        print("Proses kompres selesai")
+if(numberArg == 5):
+    if(arg1 == "-t"):
+        arg2 = str(sys.argv[2])
+        arg3 = str(sys.argv[3])
+        arg4 = str(sys.argv[4])
+        waktuMulai = arg2
+        waktuMulaiSec = get_sec(waktuMulai)
+        waktuMulaiSec2 = waktuMulaiSec - 1
+        waktuSelesai = arg3
+        waktuSelesaiSec = get_sec(waktuSelesai)
+        akhir = waktuSelesaiSec - waktuMulaiSec
+
+        namaFile = arg4
+        output = os.path.splitext(f"{namaFile}")[0]
+        os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trimmed.mp4"')
+        os.system("clear")
+        print("Proses kompres & trim selesai!")

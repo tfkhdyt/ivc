@@ -9,9 +9,7 @@ def get_sec(time_str):
     return int(h) * 3600 + int(m) * 60 + int(s)
 
 numberArg = len(sys.argv)
-#print(numberArg)
 arg1 = str(sys.argv[1])
-#print(arg1)
 
 if(numberArg == 2):
     if(arg1 == "-h"):
@@ -33,7 +31,6 @@ if(numberArg == 5):
         waktuSelesai = arg3
         waktuSelesaiSec = get_sec(waktuSelesai)
         akhir = waktuSelesaiSec - waktuMulaiSec
-
         namaFile = arg4
         output = os.path.splitext(f"{namaFile}")[0]
         os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trimmed.mp4"')

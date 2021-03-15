@@ -1,6 +1,8 @@
-#!/usr/bin/bash
-clear
-pkg install ffmpeg
-cp ivc /data/data/com.termux/files/usr/bin
-clear
-echo -e "Proses instalasi selesai!\nKetik 'ivc namaFile.mp4' untuk memulai proses kompres"
+#!/usr/bin/env python
+import os
+
+os.system("clear")
+os.system("pkg install ffmpeg")
+os.system("cp ivc /data/data/com.termux/files/usr/bin")
+os.system("clear")
+print("Proses instalasi selesai!\nKetik 'ivc namaFile.mp4' untuk memulai proses kompres")

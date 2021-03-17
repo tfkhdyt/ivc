@@ -17,8 +17,7 @@ if(numberArg == 2):
     else:
         namaFile = arg1
         output = os.path.splitext(f"{namaFile}")[0]
-        fps = os.system(f"ffprobe -v error -select_streams v -of default=noprint_wrappers=1:nokey=1 -show_entries stream=r_frame_rate {namaFile}")
-        os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -x264-params keyint={fps}:scenecut=0 -metadata comment="Compressed by Instant Video Compressor" "{output}_compressed.mp4"')
+        os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_compressed.mp4"')
         os.system("clear")
         print("Proses kompres selesai")
 if(numberArg == 5):
@@ -34,7 +33,6 @@ if(numberArg == 5):
         akhir = waktuSelesaiSec - waktuMulaiSec
         namaFile = arg4
         output = os.path.splitext(f"{namaFile}")[0]
-        fps = os.system(f"ffprobe -v error -select_streams v -of default=noprint_wrappers=1:nokey=1 -show_entries stream=r_frame_rate {namaFile}")
-        os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -x264-params keyint={fps}:scenecut=0 -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trimmed.mp4"')
+        os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trimmed.mp4"')
         os.system("clear")
         print("Proses kompres & trim selesai!")

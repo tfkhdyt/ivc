@@ -42,7 +42,7 @@ elif(numberArg == 3):
         namaFile = arg2
         output = os.path.splitext(f"{namaFile}")[0]
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_temp.mp4"')
-        os.system(f'ffmpeg -i "{output}_temp.mp4" -c copy "{output}_kompres.mp4"')
+        os.system(f'ffmpeg -i "{output}_temp.mp4" -c:v libx264 -c:a copy "{output}_kompres.mp4"')
         os.system(f'rm "{output}_temp.mp4"')
         os.system("clear")
         print("Proses kompres selesai")

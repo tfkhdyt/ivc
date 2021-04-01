@@ -20,7 +20,7 @@ if(numberArg == 2):
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_compressed.mp4"')
         os.system("clear")
         print("Proses kompres selesai")
-if(numberArg == 5):
+elif(numberArg == 5):
     if(arg1 == "-t"):
         arg2 = str(sys.argv[2])
         arg3 = str(sys.argv[3])
@@ -36,3 +36,14 @@ if(numberArg == 5):
         os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trimmed.mp4"')
         os.system("clear")
         print("Proses kompres & trim selesai!")
+elif(numberArg == 3):
+    if(arg1 == "-2"):
+        arg2 = str(sys.argv[2])
+        namaFile = arg2
+        output = os.path.splitext(f"{namaFile}")[0]
+        os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_temp.mp4"')
+        os.system(f'ffmpeg -i "{output}_temp.mp4" -c copy "{output}_compressed.mp4"')
+        os.system(f'rm "{output}_temp.mp4"')
+        os.system("clear")
+        print("Proses kompres selesai")
+

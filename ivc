@@ -33,6 +33,8 @@ elif(numberArg == 5):
         akhir = waktuSelesaiSec - waktuMulaiSec
         namaFile = arg4
         output = os.path.splitext(f"{namaFile}")[0]
+        if(os.path.exists(f"{output}_trim.mp4")):
+            output = output + "_2"
         os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_temp.mp4"')
         os.system(f'ffmpeg -i "{output}_temp.mp4" -c:v libx264 -c:a copy "{output}_trim.mp4"')
         os.system(f'rm "{output}_temp.mp4"')

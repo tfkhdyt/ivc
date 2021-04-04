@@ -17,6 +17,14 @@ if(numberArg == 2):
     else:
         namaFile = arg1
         output = os.path.splitext(f"{namaFile}")[0]
+        i = 2
+        while(True):
+            if(not os.path.exists(f"{output}_compressed.mp4")):
+                break
+            elif(not os.path.exists(f"{output}_{i}_compressed.mp4")):
+                output = output + f"_{i}"
+                break
+            i = i + 1
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed by Instant Video Compressor" "{output}_compressed.mp4"')
         os.system("clear")
         print("Proses kompres selesai")
@@ -36,7 +44,6 @@ elif(numberArg == 5):
         i = 2
         while(True):
             if(not os.path.exists(f"{output}_trim.mp4")):
-                output = output + "_trim.mp4"
                 break
             elif(not os.path.exists(f"{output}_{i}_trim.mp4")):
                 output = output + f"_{i}"
@@ -52,6 +59,14 @@ elif(numberArg == 3):
         arg2 = str(sys.argv[2])
         namaFile = arg2
         output = os.path.splitext(f"{namaFile}")[0]
+        i = 2
+        while(True):
+            if(not os.path.exists(f"{output}_volume_up.mp4")):
+                break
+            elif(not os.path.exists(f"{output}_{i}_volume_up.mp4")):
+                output = output + f"_{i}"
+                break
+            i = i + 1
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a aac -crf 20 -preset veryfast -filter:a "volume=4.0" -metadata comment="Compressed by Instant Video Compressor" "{output}_volume_up.mp4"')
         os.system("clear")
         print("Proses kompres selesai")

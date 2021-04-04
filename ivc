@@ -20,6 +20,7 @@ if(numberArg == 2):
         i = 2
         while(True):
             if(not os.path.exists(f"{output}_compressed.mp4")):
+                output = os.path.splitext(f"{namaFile}")[0]
                 break
             elif(not os.path.exists(f"{output}_{i}_compressed.mp4")):
                 output = output + f"_{i}"
@@ -44,6 +45,7 @@ elif(numberArg == 5):
         i = 2
         while(True):
             if(not os.path.exists(f"{output}_trim.mp4")):
+                output = os.path.splitext(f"{namaFile}")[0]
                 break
             elif(not os.path.exists(f"{output}_{i}_trim.mp4")):
                 output = output + f"_{i}"
@@ -62,6 +64,7 @@ elif(numberArg == 3):
         i = 2
         while(True):
             if(not os.path.exists(f"{output}_volume_up.mp4")):
+                output = os.path.splitext(f"{namaFile}")[0]
                 break
             elif(not os.path.exists(f"{output}_{i}_volume_up.mp4")):
                 output = output + f"_{i}"

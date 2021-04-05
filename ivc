@@ -13,7 +13,7 @@ arg1 = str(sys.argv[1])
 
 if(numberArg == 2):
     if(arg1 == "-h"):
-        print("Compress: ivc [namaFile.mp4]\nContoh  : ivc sample.mp4\n\nTrim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]\nContoh: ivc -t 00:01:00 00:02:30 sample.mp4\n\nVolume up: ivc -vu [namaFile.mp4]\nContoh      : ivc -vu sample.mp4\n\nMembatalkan proses kompres: Ctrl + C")
+        print("Compress: ivc [namaFile.mp4]\nContoh  : ivc sample.mp4\n\nTrim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]\nContoh: ivc -t 00:01:00 00:02:30 sample.mp4\n\nVolume up: ivc -vu [namaFile.mp4]\nContoh : ivc -vu sample.mp4\n\nMembatalkan proses kompres: Ctrl + C")
     else:
         namaFile = arg1
         output = os.path.splitext(f"{namaFile}")[0]

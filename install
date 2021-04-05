@@ -3,6 +3,6 @@ import os
 
 os.system("clear")
 os.system("pkg install ffmpeg")
-os.system("cp ivc /data/data/com.termux/files/usr/bin")
+os.system("cp ivc $PREFIX/bin")
 os.system("clear")
-print("Proses instalasi selesai!\nKetik 'ivc namaFile.mp4' untuk memulai proses kompres")
+print("Proses instalasi selesai!\nKetik 'ivc -h' untuk melihat tutorial")

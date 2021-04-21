@@ -73,4 +73,20 @@ elif(numberArg == 3):
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a aac -crf 20 -preset veryfast -filter:a "volume=4.0" -metadata comment="Compressed by Instant Video Compressor" "{output}_volume_up.mp4"')
         os.system("clear")
         print("Proses kompres selesai")
+    elif(arg1 == "-m"):
+        arg2 = str(sys.argv[2])
+        namaFile = arg2
+        output = os.path.splitext(f"{namaFile}")[0]
+        i = 2
+        while(True):
+            if(not os.path.exists(f"{output}_resized.mp4")):
+                output = os.path.splitext(f"{namaFile}")[0]
+                break
+            elif(not os.path.exists(f"{output}_{i}_resized.mp4")):
+                output = output + f"_{i}"
+                break
+            i = i + 1
+        os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -filter:v scale="1080:-1" -metadata comment="Compressed by Instant Video Compressor" "{output}_resized.mp4"')
+        os.system("clear")
+        print("Proses kompres selesai")
 

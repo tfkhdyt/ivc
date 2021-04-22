@@ -51,9 +51,7 @@ elif(numberArg == 5):
                 output = output + f"_{i}"
                 break
             i = i + 1
-        os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_temp.mp4"')
-        os.system(f'ffmpeg -i "{output}_temp.mp4" -c:v libx264 -c:a copy "{output}_trim.mp4"')
-        os.system(f'rm "{output}_temp.mp4"')
+        os.system(f'ffmpeg -ss {waktuMulaiSec2} -i "{namaFile}" -ss 1 -t {akhir} -c:v libx264 -crf 20 -preset veryfast -c:a copy -metadata comment="Compressed & trimmed by Instant Video Compressor" "{output}_trim.mp4"')
         os.system("clear")
         print("Proses kompres & trim selesai!")
 elif(numberArg == 3):

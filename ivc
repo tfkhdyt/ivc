@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-import sys
-import os
+import sys, os, math, subprocess
 from datetime import datetime
 
 def get_sec(time_str):
@@ -13,7 +12,22 @@ arg1 = str(sys.argv[1])
 
 if(numberArg == 2):
     if(arg1 == "-h"):
-        print("Compress: ivc [namaFile.mp4]\nContoh  : ivc sample.mp4\n\nTrim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]\nContoh: ivc -t 00:01:00 00:02:30 sample.mp4\n\nVolume up: ivc -vu [namaFile.mp4]\nContoh   : ivc -vu sample.mp4\n\nMobile friendly resolution: ivc -m [namaFile.mp4]\nContoh                    : ivc -m sample.mp4\n\nMembatalkan proses kompres: Ctrl + C")
+        print("""Compress: ivc [namaFile.mp4]
+Contoh  : ivc sample.mp4
+
+Trim  : ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
+Contoh: ivc -t 00:01:00 00:02:30 sample.mp4
+
+Volume up: ivc -vu [namaFile.mp4]
+Contoh   : ivc -vu sample.mp4
+
+Mobile friendly resolution: ivc -m [namaFile.mp4]
+Contoh                    : ivc -m sample.mp4
+
+WhatsApp Status Trim: ivc -wa [namaFile.mp4]
+Contoh              : ivc -wa sample.mp4
+
+Membatalkan proses kompres: Ctrl + C""")
     else:
         namaFile = arg1
         output = os.path.splitext(f"{namaFile}")[0]
@@ -87,4 +101,36 @@ elif(numberArg == 3):
         os.system(f'ffmpeg -i "{namaFile}" -c:v libx264 -c:a copy -filter:v scale="1080:-1" -metadata comment="Compressed by Instant Video Compressor" "{output}_resized.mp4"')
         os.system("clear")
         print("Proses kompres selesai")
-
+    elif(arg1 == "-wa"):
+        arg2 = str(sys.argv[2])
+        namaFile = arg2
+        
+        output = os.path.splitext(f"{namaFile}")[0]
+        # i = 2
+        # while(True):
+        #     if(not os.path.exists(f"{output}_wa.mp4")):
+        #         output = os.path.splitext(f"{namaFile}")[0]
+        #         break
+        #     elif(not os.path.exists(f"{output}_{i}_wa.mp4")):
+        #         output = output + f"_{i}"
+        #         break
+        #     i = i + 1
+            
+        dur = subprocess.check_output(f"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 {namaFile}", shell=True)
+        durasi = math.floor(dur)
+        if durasi % 30 == 0:
+        	perulangan = durasi / 30
+        else
+        	perulangan = durasi / 30 + 1
+        i = 1
+        waktuAwal = 0
+        while i <= perulangan:
+        	os.system(f'ffmpeg -i {namaFile} -ss {waktuAwal} -t 30 -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed and Trimmed by Instant Video Compressor" "{output}-{i}-wa.mp4"')
+        	i = i + 1
+        	waktuAwal = waktuAwal + 30
+        if os.path.exists(f"{output}-1-wa.mp4"):
+	        os.system('clear')
+	        print("Trim success!")
+        	print(f"Result: {perulangan} files")
+        else:
+	        print("Trim failed!")

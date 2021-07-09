@@ -116,7 +116,7 @@ elif(numberArg == 3):
         #         break
         #     i = i + 1
             
-        dur = subprocess.check_output(f"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 {namaFile}", shell=True)
+        dur = subprocess.check_output(f"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '{namaFile}'", shell=True)
         durasi = math.floor(dur)
         if durasi % 30 == 0:
         	perulangan = durasi / 30

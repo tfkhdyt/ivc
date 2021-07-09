@@ -32,15 +32,27 @@ termux-setup-storage
 # cloning source code
 git clone https://github.com/tfkhdyt/ivc.git && cd ivc && ./install
 
-# Compress: 
+# Compress
 ivc [namaFile.mp4]
-# Contoh  :
-ivc sample.mp4
+Contoh : ivc sample.mp4
 
-# Trim  : 
+# Trim
 ivc -t [Waktu awal] [Waktu akhir] [namaFile.mp4]
-# Contoh: 
-ivc -t 00:01:00 00:02:30 sample.mp4
+Contoh : ivc -t 00:01:00 00:02:30 sample.mp4
+
+# Volume up
+ivc -vu [namaFile.mp4]
+Contoh : ivc -vu sample.mp4
+
+# Mobile friendly resolution
+ivc -m [namaFile.mp4]
+Contoh : ivc -m sample.mp4
+
+# WhatsApp Status Trim
+ivc -wa [namaFile.mp4]
+Contoh : ivc -wa sample.mp4
+
+# Membatalkan proses kompres: Ctrl + C
 
 # Jika nama file mengandung spasi, maka awali dan akhiri nama file dengan tanda " " (Petik)
 # Contoh : ivc "Mega to Drive_1080p.mp4"

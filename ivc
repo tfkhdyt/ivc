@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import sys, os, math
-from subprocess import Popen, PIPE
+import sys, os, math, subprocess
+# from subprocess import Popen, PIPE
 from datetime import datetime
 
 def get_sec(time_str):
@@ -117,8 +117,8 @@ elif(numberArg == 3):
         #         break
         #     i = i + 1
         
-        dur = Popen(["ffprobe", '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1',f'{namaFile}'],stdout=PIPE)
-        dur = dur.communicate()
+        dur = float(subprocess.run(["ffprobe", '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1',f'{namaFile}'],stdout=subprocess.PIPE).stdout.decode('utf-8'))
+        # print(dur)
         # dur = subprocess.run(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '{namaFile}'", )
         durasi = math.floor(dur)
         if durasi % 30 == 0:
@@ -128,12 +128,12 @@ elif(numberArg == 3):
         i = 1
         waktuAwal = 0
         while i <= perulangan:
-        	os.system(f'ffmpeg -i {namaFile} -ss {waktuAwal} -t 30 -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed and Trimmed by Instant Video Compressor" "{output}-{i}-wa.mp4"')
+        	os.system(f'ffmpeg -i "{namaFile}" -ss {waktuAwal} -t 30 -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed and Trimmed by Instant Video Compressor" "{output}-{i}-wa.mp4"')
         	i = i + 1
         	waktuAwal = waktuAwal + 30
         if os.path.exists(f"{output}-1-wa.mp4"):
 	        os.system('clear')
 	        print("Trim success!")
-        	print(f"Result: {perulangan} files")
+        	print(f"Result: {math.floor(perulangan)} files")
         else:
 	        print("Trim failed!")

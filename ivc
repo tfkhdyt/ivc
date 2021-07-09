@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import sys, os, math, subprocess
+import sys, os, math
+from subprocess import Popen, PIPE
 from datetime import datetime
 
 def get_sec(time_str):
@@ -115,8 +116,10 @@ elif(numberArg == 3):
         #         output = output + f"_{i}"
         #         break
         #     i = i + 1
-            
-        dur = subprocess.check_output(f"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '{namaFile}'", shell=True)
+        
+        dur = Popen(["ffprobe", '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1',f'"{namaFile}"'],stdout=PIPE)
+        dur = dur.communicate()
+        # dur = subprocess.run(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '{namaFile}'", )
         durasi = math.floor(dur)
         if durasi % 30 == 0:
         	perulangan = durasi / 30

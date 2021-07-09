@@ -117,7 +117,7 @@ elif(numberArg == 3):
         #         break
         #     i = i + 1
         
-        dur = Popen(["ffprobe", '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1',f'"{namaFile}"'],stdout=PIPE)
+        dur = Popen(["ffprobe", '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1',f'{namaFile}'],stdout=PIPE)
         dur = dur.communicate()
         # dur = subprocess.run(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 '{namaFile}'", )
         durasi = math.floor(dur)

@@ -128,7 +128,7 @@ elif(numberArg == 3):
         i = 1
         waktuAwal = 0
         while i <= perulangan:
-        	os.system(f'ffmpeg -i "{namaFile}" -ss {waktuAwal} -t 30 -c:v libx264 -c:a copy -crf 20 -preset veryfast -metadata comment="Compressed and Trimmed by Instant Video Compressor" "{output}-{i}-wa.mp4"')
+        	os.system(f'ffmpeg -i "{namaFile}" -ss {waktuAwal} -t 30 -c:v libx264 -c:a copy -metadata comment="Compressed and Trimmed by Instant Video Compressor" "{output}-{i}-wa.mp4"')
         	i = i + 1
         	waktuAwal = waktuAwal + 30
         if os.path.exists(f"{output}-1-wa.mp4"):
